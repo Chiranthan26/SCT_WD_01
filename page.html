@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu - TechSolutions Inc.</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for smooth transitions and font */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding-top: 80px; /* Space for fixed navigation bar */
+            background-color: #f0f2f5; /* Light background for content */
+        }
+        nav {
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            z-index: 1000; /* Ensure nav is above other content */
+        }
+        nav.scrolled-nav {
+            background-color: #33c51d; /* Darker background when scrolled (Slate 700) */
+            box-shadow: 0 4px 6px -1px rgba(62, 32, 181, 0.1), 0 2px 4px -1px rgba(216, 25, 25, 0.06); /* Shadow when scrolled */
+        }
+        nav a {
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+        /* Style for content sections to make them scrollable */
+        section {
+            min-height: 80vh; /* Make sections tall enough to enable scrolling */
+            display: flex;
+            flex-direction: column; /* Allow content to stack */
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: yellow;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        section:nth-child(odd) {
+            background-color: #e2e8f0; /* Light gray */
+        }
+        section:nth-child(even) {
+            background-color: #f8fafc; /* Lighter gray */
+        }
+        /* Specific styles for About section content */
+        #about p, #services ul, #contact div {
+            font-size: 1.25rem;
+            line-height: 1.75;
+            max-width: 800px;
+            margin-top: 20px;
+            color: black; /* Slate 600 */
+        }
+        #services ul {
+            text-align: left; /* Align list items to the left */
+            list-style-type: disc; /* Add bullet points */
+            padding-left: 20px; /* Indent list */
+        }
+        #services li {
+            margin-bottom: 10px;
+        }
+        #contact div {
+            text-align: center;
+        }
+        #contact p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Navigation Bar -->
+    <nav id="mainNav" class="fixed top-0 left-0 w-full bg-blue-700 text-white p-4 shadow-lg rounded-b-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold rounded-md p-2 hover:bg-blue-800">TechSolutions Inc.</a>
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="nav-item px-4 py-2 rounded-md hover:bg-blue-800 hover:text-white">Home</a></li>
+                <li><a href="#about" class="nav-item px-4 py-2 rounded-md hover:bg-blue-800 hover:text-white">About Us</a></li>
+                <li><a href="#services" class="nav-item px-4 py-2 rounded-md hover:bg-blue-800 hover:text-white">Services</a></li>
+                <li><a href="#contact" class="nav-item px-4 py-2 rounded-md hover:bg-blue-800 hover:text-white">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content Sections (to enable scrolling) -->
+    <section id="home" class="bg-gradient-to-r from-blue-100 to-indigo-100">
+        <h1 class="text-4xl font-extrabold text-blue-800">Welcome to TechSolutions Inc.!</h1>
+        <p class="text-xl mt-4 text-blue-700">Innovating for a brighter future.</p>
+        <img src ="image.jpg"/>
+    </section>
+
+    <section id="about" class="bg-gradient-to-r from-green-100 to-teal-100">
+        <h1 class="text-4xl font-extrabold text-green-800">About TechSolutions Inc.</h1>
+        <p>
+            TechSolutions Inc. is a leading technology company dedicated to providing cutting-edge solutions for businesses worldwide.
+            With over 15 years of experience, we specialize in software development, cloud services, and IT consulting.
+            Our mission is to empower organizations with innovative technology that drives efficiency, growth, and success.
+            We pride ourselves on our commitment to excellence, customer satisfaction, and a team of highly skilled professionals.
+        </p>
+        <p>
+            Founded in 2008, TechSolutions Inc. has grown from a small startup into a global leader, serving clients across various industries.
+            We believe in fostering long-term partnerships and delivering tailored solutions that meet the unique challenges of each client.
+            
+        </p>
+    </section>
+
+    <section id="services" class="bg-gradient-to-r from-purple-100 to-pink-100">
+        <h1 class="text-4xl font-extrabold text-purple-800">Our Services</h1>
+        <p class="text-xl mt-4 text-purple-700">Explore how we can help your business thrive.</p>
+        <ul class="mt-8">
+            <li>Custom Software Development: Tailored applications for your unique business needs.</li>
+            <li>Cloud Solutions & Migration: Seamless transition to scalable and secure cloud environments.</li>
+            <li>IT Consulting & Strategy: Expert advice to optimize your technology infrastructure.</li>
+            <li>Cybersecurity Services: Protecting your data and systems from evolving threats.</li>
+            <li>Data Analytics & AI: Harnessing data to drive informed decisions and innovation.</li>
+            <li>Managed IT Services: Proactive support and maintenance for your IT operations.</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="bg-gradient-to-r from-yellow-100 to-orange-100">
+        <h1 class="text-4xl font-extrabold text-orange-800">Contact Us</h1>
+        
+        <div class="mt-8 text-lg text-gray-700">
+            <p><strong>Address:</strong> 123 Tech Park, innovation city,Bengaluru-64</p>
+            <p><strong>Phone:</strong> +91 988XXXXXXX</p>
+            <p><strong>Email:</strong> info@techsolutionsinc.com</p>
+            
+        </div>
+    </section>
+
+    <script>
+        // Get the navigation bar element
+        const mainNav = document.getElementById('mainNav');
+        // Get all navigation items
+        const navItems = document.querySelectorAll('.nav-item');
+
+        // Function to handle scroll event for navigation bar style change
+        function handleScroll() {
+            // Check if the user has scrolled down more than 50 pixels
+            if (window.scrollY > 50) {
+                mainNav.classList.add('scrolled-nav'); // Add class for scrolled state
+                // Change text color of nav items when scrolled
+                navItems.forEach(item => {
+                    item.classList.remove('text-white'); // Remove initial white
+                    item.classList.add('text-blue-200'); // Add lighter color for contrast
+                    item.classList.remove('hover:bg-blue-800'); // Remove initial hover
+                    item.classList.add('hover:bg-slate-600'); // Add new hover color for scrolled state
+                });
+            } else {
+                mainNav.classList.remove('scrolled-nav'); // Remove class for initial state
+                // Revert text color of nav items to initial state
+                navItems.forEach(item => {
+                    item.classList.remove('text-blue-200'); // Remove lighter color
+                    item.classList.add('text-white'); // Add initial white
+                    item.classList.remove('hover:bg-slate-600'); // Remove new hover
+                    item.classList.add('hover:bg-blue-800'); // Add initial hover color
+                });
+            }
+        }
+
+        // Add scroll event listener to the window
+        window.addEventListener('scroll', handleScroll);
+
+        // Initial check in case the page loads already scrolled
+        handleScroll();
+
+        // Add hover effects for navigation items
+        navItems.forEach(item => {
+            item.addEventListener('mouseover', () => {
+                // The hover effect is already handled by Tailwind's `hover:bg-blue-800` and `hover:bg-slate-600` classes.
+                // No additional JavaScript needed for simple background/text color changes on hover.
+                // If more complex hover animations or dynamic content were needed, JS would be used here.
+            });
+            item.addEventListener('mouseout', () => {
+                // No specific action needed on mouseout as Tailwind handles reverting
+            });
+        });
+    </script>
+</body>
+</html>
